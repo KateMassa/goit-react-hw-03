@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
+import css from "./ContactForm.module.css";
 
 const ContactForm = ({ addContact }) => (
   <Formik
@@ -25,17 +26,21 @@ const ContactForm = ({ addContact }) => (
     }}
   >
     <Form>
-      <div>
-        <label htmlFor="name">Name</label>
-        <Field type="text" name="name" />
-        <ErrorMessage name="name" component="div" />
+      <div className={css.formContainer}>
+        <div className={css.addContactContainer}>
+          <label htmlFor="name">Name</label>
+          <Field type="text" name="name" />
+          <ErrorMessage name="name" component="div" />
+        </div>
+        <div className={css.addContactContainer}>
+          <label htmlFor="number">Number</label>
+          <Field type="text" name="number" />
+          <ErrorMessage name="number" component="div" />
+        </div>
+        <button className={css.formButton} type="submit">
+          Add Contact
+        </button>
       </div>
-      <div>
-        <label htmlFor="number">Number</label>
-        <Field type="text" name="number" />
-        <ErrorMessage name="number" component="div" />
-      </div>
-      <button type="submit">Add Contact</button>
     </Form>
   </Formik>
 );

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ContactList from "../ContactList/ContactList";
 import ContactForm from "../ContactForm/ContactForm";
 import SearchBox from "../SearchBox/SearchBox";
+import css from "./App.module.css";
 
 const initialContacts = [
   { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
@@ -42,7 +43,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className={css.container}>
       <h1>Phonebook</h1>
       <ContactForm addContact={addContact} />
       <SearchBox handleSearch={handleSearchChange} />
